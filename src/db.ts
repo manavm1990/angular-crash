@@ -1,6 +1,6 @@
 import { Course } from './models/course';
 
-export const COURSES: any = [
+export const COURSES: Course[] = [
   {
     id: 1,
     description: 'Angular Core Deep Dive',
