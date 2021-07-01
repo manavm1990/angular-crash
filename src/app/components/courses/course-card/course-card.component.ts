@@ -9,6 +9,8 @@ import { Course } from 'src/models/course';
 export class CourseCardComponent {
   @Output() selectedACourse: EventEmitter<Course> = new EventEmitter<Course>();
   @Input() course!: Course;
+  @Input() courseNumber!: number;
+  @Input() isFirst: boolean = false;
 
   onClick(): void {
     this.selectedACourse.emit(this.course);

@@ -1,7 +1,9 @@
 <div class="courses">
   <app-course-card
-    *ngFor="let course of courses"
+    *ngFor="let course of courses; index as i; first as isFirst"
     [course]="course"
+    [courseNumber]="i + 1"
+    [isFirst]="isFirst"
     (selectedACourse)="selectCourse($event)"
   ></app-course-card>
 </div>
