@@ -13,4 +13,8 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
     this.courses = COURSES;
   }
+
+  selectCourse(course: Course) {
+    console.log(course);
+  }
 }
