@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Course } from 'src/models/course';
 
 @Component({
   selector: 'app-course-card',
   templateUrl: './course-card.component.html',
-  styleUrls: ['./course-card.component.css']
+  styleUrls: ['./course-card.component.css'],
 })
-export class CourseCardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CourseCardComponent {
+  @Input() course!: Course;
 }
