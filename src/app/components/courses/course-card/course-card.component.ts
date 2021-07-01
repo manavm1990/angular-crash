@@ -11,6 +11,9 @@ export class CourseCardComponent {
   @Input() course!: Course;
   @Input() courseNumber!: number;
   @Input() isFirst: boolean = false;
+  @Input() isLast: boolean = false;
+  @Input() isOdd: boolean = false;
+  @Input() isEven: boolean = false;
 
   onClick(): void {
     this.selectedACourse.emit(this.course);

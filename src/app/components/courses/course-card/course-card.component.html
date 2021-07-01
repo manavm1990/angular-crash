@@ -1,4 +1,12 @@
-<section class="course-card" [class.is-first]="isFirst">
+<section
+  class="course-card"
+  [ngClass]="{
+    'is-first': isFirst,
+    'is-last': isLast,
+    'is-even': isEven,
+    'is-odd': isOdd
+  }"
+>
   <h2 class="course-title">#{{ courseNumber }} {{ course.description }}</h2>
   <img
     width="300"
