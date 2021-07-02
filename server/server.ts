@@ -1,3 +1,4 @@
+import * as cors from 'cors';
 import * as express from 'express';
 import { Application } from 'express';
 import { getAllCourses } from './routes/get-courses.route';
@@ -8,6 +9,7 @@ const bodyParser = require('body-parser');
 const app: Application = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.route('/api/courses').get(getAllCourses);
 
