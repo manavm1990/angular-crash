@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course } from 'src/models/course';
+import Course from 'src/models/course';
+import CoursesPayload from 'src/models/coursesPayload';
 
 const BASE_URL = 'http://localhost:9000/api';
 
@@ -11,7 +12,7 @@ const BASE_URL = 'http://localhost:9000/api';
 export class CourseService {
   constructor(private httpClient: HttpClient) {}
 
-  getCourses(): Observable<Course> {
-    return this.httpClient.get<Course>(BASE_URL + '/courses');
+  getCourses(): Observable<CoursesPayload> {
+    return this.httpClient.get<CoursesPayload>(BASE_URL + '/courses');
   }
 }
