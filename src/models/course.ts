@@ -1,4 +1,4 @@
-export interface Course {
+export default interface Course {
   id: number;
   description: string;
   iconUrl: string;
