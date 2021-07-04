@@ -19,7 +19,15 @@ export class CoursesComponent implements OnInit {
   }
 
   // TODO: Route to new page (same 💩 different 🚽)
-  selectCourse(course: Course): void {
+  select(course: Course): void {
     console.log(course);
+  }
+
+  update(course: Course): void {
+    this.courseService
+      .updateCourse(course)
+
+      // ⚠️ MUST SUBSCRIBE TO TRIGGER UPDATE!
+      .subscribe();
   }
 }

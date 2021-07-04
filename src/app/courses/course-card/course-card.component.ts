@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import Course from 'src/models/course';
+import { CourseService } from '../shared/course.service';
 
 @Component({
   selector: 'app-course-card',
@@ -7,8 +8,8 @@ import Course from 'src/models/course';
   styleUrls: ['./course-card.component.css'],
 })
 export class CourseCardComponent {
-  @Output() selectedACourse: EventEmitter<Course> = new EventEmitter<Course>();
   @Output() changedACourse: EventEmitter<Course> = new EventEmitter<Course>();
+  @Output() selectedACourse: EventEmitter<Course> = new EventEmitter<Course>();
   @Input() course!: Course;
   @Input() courseNumber!: number;
   @Input() isFirst: boolean = false;
@@ -22,5 +23,9 @@ export class CourseCardComponent {
 
   onSelectClick(): void {
     this.selectedACourse.emit(this.course);
+  }
+
+  onUpdateClick(): void {
+    this.changedACourse.emit(this.course);
   }
 }

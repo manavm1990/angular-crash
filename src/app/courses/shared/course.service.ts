@@ -13,4 +13,8 @@ export class CourseService {
   initCourses(): Observable<CoursesPayload> {
     return this.httpClient.get<CoursesPayload>('/api/courses');
   }
+
+  updateCourse(course: Course): Observable<Course> {
+    return this.httpClient.put<Course>('/api/courses/' + course.id, course);
+  }
 }
