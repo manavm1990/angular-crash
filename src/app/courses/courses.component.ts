@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CourseService } from 'src/app/courses/shared/course.service';
 import Course from 'src/models/course';
+import CoursesPayload from 'src/models/coursesPayload';
 
 @Component({
   selector: 'app-courses',
@@ -8,14 +10,12 @@ import Course from 'src/models/course';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent implements OnInit {
-  courses: Course[] = [];
+  courses$!: Observable<CoursesPayload>;
 
   constructor(private courseService: CourseService) {}
 
   ngOnInit() {
-    this.courseService.getCourses().subscribe(({ payload }) => {
-      this.courses = payload;
-    });
+    this.courses$ = this.courseService.getCourses();
   }
 
   selectCourse(course: Course): void {

@@ -1,7 +1,7 @@
-<div class="courses">
+<div class="courses" *ngIf="courses$ | async as courses">
   <app-course-card
     *ngFor="
-      let course of courses;
+      let course of courses.payload;
       index as i;
       first as isFirst;
       last as isLast;
