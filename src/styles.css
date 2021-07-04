@@ -6,3 +6,9 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+.screen-reader-text {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
