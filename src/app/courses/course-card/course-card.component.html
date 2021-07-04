@@ -14,7 +14,21 @@
     beginner: course.category.toLowerCase() === 'beginner'
   }"
 >
-  <h2 class="course-title">#{{ courseNumber }} {{ course.description }}</h2>
+  <!-- TODO: 💄 Align Numbering and Title -->
+  <h2 class="course-title">
+    #{{ courseNumber }}
+
+    <label for="course-desc" class="screen-reader-text"
+      >Course Description</label
+    >
+    <!-- Using a template reference variable  -->
+    <input
+      #courseDesc
+      value="{{ course.description }}"
+      (keyup)="onDescChange(courseDesc.value)"
+      id="course-desc"
+    />
+  </h2>
   <img
     width="300"
     alt="{{ course.description + 'logo' }}"

@@ -8,12 +8,17 @@ import Course from 'src/models/course';
 })
 export class CourseCardComponent {
   @Output() selectedACourse: EventEmitter<Course> = new EventEmitter<Course>();
+  @Output() changedACourse: EventEmitter<Course> = new EventEmitter<Course>();
   @Input() course!: Course;
   @Input() courseNumber!: number;
   @Input() isFirst: boolean = false;
   @Input() isLast: boolean = false;
   @Input() isOdd: boolean = false;
   @Input() isEven: boolean = false;
+
+  onDescChange(descVal: string): void {
+    this.course.description = descVal;
+  }
 
   onSelectClick(): void {
     this.selectedACourse.emit(this.course);
