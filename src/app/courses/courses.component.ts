@@ -18,6 +18,7 @@ export class CoursesComponent implements OnInit {
     this.courses$ = this.courseService.initCourses();
   }
 
+  // TODO: Route to new page (same 💩 different 🚽)
   selectCourse(course: Course): void {
     console.log(course);
   }
