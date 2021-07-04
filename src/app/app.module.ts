@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CourseCardComponent } from './courses/course-card/course-card.component';
 import { CoursesComponent } from './courses/courses.component';
 
-const routes: Routes = [];
+const routes: Routes = [{ path: '', component: CoursesComponent }];
 
 @NgModule({
   declarations: [AppComponent, CourseCardComponent, CoursesComponent],
