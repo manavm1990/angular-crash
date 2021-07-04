@@ -10,7 +10,7 @@ import CoursesPayload from 'src/models/coursesPayload';
 export class CourseService {
   constructor(private httpClient: HttpClient) {}
 
-  getCourses(): Observable<CoursesPayload> {
+  initCourses(): Observable<CoursesPayload> {
     return this.httpClient.get<CoursesPayload>('/api/courses');
   }
 }
