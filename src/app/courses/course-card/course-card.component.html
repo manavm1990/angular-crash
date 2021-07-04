@@ -18,7 +18,7 @@
   <h2 class="course-title">
     #{{ courseNumber }}
 
-    <label for="course-desc" class="screen-reader-text"
+    <label for="{{ 'course-desc' + courseNumber }}'>" class="screen-reader-text"
       >Course Description</label
     >
     <!-- Using a template reference variable  -->
@@ -26,7 +26,7 @@
       #courseDesc
       value="{{ course.description }}"
       (keyup)="onDescChange(courseDesc.value)"
-      id="course-desc"
+      id="{{ 'course-desc' + courseNumber }}'>"
     />
   </h2>
   <img
@@ -40,4 +40,5 @@
   </p>
 
   <button (click)="onSelectClick()">View Course</button>
+  <button (click)="onUpdateClick()">Update Course</button>
 </section>
