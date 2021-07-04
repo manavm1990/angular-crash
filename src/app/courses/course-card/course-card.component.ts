@@ -15,7 +15,7 @@ export class CourseCardComponent {
   @Input() isOdd: boolean = false;
   @Input() isEven: boolean = false;
 
-  onClick(): void {
+  onSelectClick(): void {
     this.selectedACourse.emit(this.course);
   }
 }
