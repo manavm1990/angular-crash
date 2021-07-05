@@ -12,6 +12,7 @@ import { CourseService } from '../shared/course.service';
 export class CourseCardComponent {
   @Output() courseSelection: EventEmitter<Course> = new EventEmitter<Course>();
   @Output() courseUpdate: EventEmitter<Course> = new EventEmitter<Course>();
+
   @Input() course?: Course;
   @Input() courseNumber?: number;
   @Input() isEven?: boolean = false;
