@@ -13,10 +13,11 @@
     'is-odd': isOdd,
     beginner: course.category.toLowerCase() === 'beginner'
   }"
+  *ngIf="course"
 >
   <!-- TODO: 💄 Align Numbering and Title -->
   <h2 class="course-title">
-    #{{ courseNumber }}
+    <span *ngIf="courseNumber">#{{ courseNumber }}&nbsp;</span>
 
     <label for="{{ 'course-desc' + courseNumber }}'>" class="screen-reader-text"
       >Course Description</label
@@ -39,6 +40,12 @@
     {{ course.longDescription }}
   </p>
 
-  <button (click)="onSelectClick()">View Course</button>
+  <button *ngIf="courseNumber; else backButton" (click)="onSelectClick()">
+    View Course
+  </button>
+
+  <ng-template #backButton
+    ><button (click)="onGoBack()">Go Back</button></ng-template
+  >
   <button (click)="onUpdateClick()">Update Course</button>
 </section>
