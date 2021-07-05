@@ -26,9 +26,10 @@ export class CourseCardComponent {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (!this.course) {
+      // If there is no `course`, we must have it from the route
+      const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    if (id) {
       this.courseService.getCourse(id).subscribe((course: Course) => {
         this.course = course;
       });
