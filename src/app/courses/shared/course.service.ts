@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import Course from 'src/models/course';
 import CoursesPayload from 'src/models/coursesPayload';
 
@@ -15,8 +16,10 @@ export class CourseService {
     return this.httpClient.get<Course>('/api/courses/', { params });
   }
 
-  initCourses(): Observable<CoursesPayload> {
-    return this.httpClient.get<CoursesPayload>('/api/courses');
+  initCourses(): Observable<Course[]> {
+    return this.httpClient
+      .get<CoursesPayload>('/api/courses')
+      .pipe(map((resp) => resp.payload));
   }
 
   updateCourse(course: Course): Observable<Course> {

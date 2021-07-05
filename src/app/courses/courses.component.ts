@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CourseService } from 'src/app/courses/shared/course.service';
 import Course from 'src/models/course';
-import CoursesPayload from 'src/models/coursesPayload';
 
 @Component({
   selector: 'app-courses',
@@ -11,7 +10,7 @@ import CoursesPayload from 'src/models/coursesPayload';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent implements OnInit {
-  courses$!: Observable<CoursesPayload>;
+  courses$!: Observable<Course[]>;
 
   constructor(private courseService: CourseService, private router: Router) {}
 
