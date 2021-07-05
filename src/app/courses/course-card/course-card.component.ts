@@ -12,12 +12,12 @@ import { CourseService } from '../shared/course.service';
 export class CourseCardComponent {
   @Output() courseSelection: EventEmitter<Course> = new EventEmitter<Course>();
   @Output() courseUpdate: EventEmitter<Course> = new EventEmitter<Course>();
-  @Input() course!: Course;
+  @Input() course?: Course;
   @Input() courseNumber?: number;
-  @Input() isEven: boolean = false;
-  @Input() isFirst: boolean = false;
-  @Input() isLast: boolean = false;
-  @Input() isOdd: boolean = false;
+  @Input() isEven?: boolean = false;
+  @Input() isFirst?: boolean = false;
+  @Input() isLast?: boolean = false;
+  @Input() isOdd?: boolean = false;
 
   constructor(
     private courseService: CourseService,
@@ -37,7 +37,9 @@ export class CourseCardComponent {
   }
 
   onDescChange(descVal: string): void {
-    this.course.description = descVal;
+    if (this.course) {
+      this.course.description = descVal;
+    }
   }
 
   onGoBack(): void {
