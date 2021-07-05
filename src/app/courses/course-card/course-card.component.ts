@@ -10,8 +10,8 @@ import { CourseService } from '../shared/course.service';
   styleUrls: ['./course-card.component.css'],
 })
 export class CourseCardComponent {
-  @Output() changedACourse: EventEmitter<Course> = new EventEmitter<Course>();
-  @Output() selectedACourse: EventEmitter<Course> = new EventEmitter<Course>();
+  @Output() courseSelection: EventEmitter<Course> = new EventEmitter<Course>();
+  @Output() courseUpdate: EventEmitter<Course> = new EventEmitter<Course>();
   @Input() course!: Course;
   @Input() courseNumber?: number;
   @Input() isEven: boolean = false;
@@ -45,10 +45,10 @@ export class CourseCardComponent {
   }
 
   onSelectClick(): void {
-    this.selectedACourse.emit(this.course);
+    this.courseSelection.emit(this.course);
   }
 
   onUpdateClick(): void {
-    this.changedACourse.emit(this.course);
+    this.courseUpdate.emit(this.course);
   }
 }
