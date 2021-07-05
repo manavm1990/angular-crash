@@ -20,7 +20,7 @@ export class CoursesComponent implements OnInit {
   }
 
   select(course: Course): void {
-    this.router.navigate(['/courses/', course.id]);
+    this.router.navigateByUrl(`/courses/${course.id}`);
   }
 
   update(course: Course): void {
