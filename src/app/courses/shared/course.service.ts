@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import Course from 'src/models/course';
@@ -9,6 +9,11 @@ import CoursesPayload from 'src/models/coursesPayload';
 })
 export class CourseService {
   constructor(private httpClient: HttpClient) {}
+
+  getCourse(id: number): Observable<Course> {
+    const params = new HttpParams().set('id', id.toString());
+    return this.httpClient.get<Course>('/api/courses/', { params });
+  }
 
   initCourses(): Observable<CoursesPayload> {
     return this.httpClient.get<CoursesPayload>('/api/courses');
