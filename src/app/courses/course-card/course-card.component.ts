@@ -14,10 +14,10 @@ export class CourseCardComponent {
   @Output() selectedACourse: EventEmitter<Course> = new EventEmitter<Course>();
   @Input() course!: Course;
   @Input() courseNumber?: number;
+  @Input() isEven: boolean = false;
   @Input() isFirst: boolean = false;
   @Input() isLast: boolean = false;
   @Input() isOdd: boolean = false;
-  @Input() isEven: boolean = false;
 
   constructor(
     private courseService: CourseService,
