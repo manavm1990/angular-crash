@@ -39,7 +39,9 @@
         "xo-typescript",
         "prettier"
       ],
-      "rules": {}
+      "rules": {
+        "no-console": 1
+      }
     }
   ]
 }
