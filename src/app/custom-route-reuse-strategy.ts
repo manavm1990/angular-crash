@@ -9,13 +9,15 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
 
   // Should route be detached for reuse?
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    return route.routeConfig?.path === 'courses';
+    // All routes should be detached (all start with 'courses')
+    return true;
   }
 
   store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
+    console.log(route.params.id);
     const path = route.routeConfig?.path;
     if (path) {
-      this.stored.set(path, handle);
+      this.stored.set(path + (route.params.id || ''), handle);
     }
   }
 
@@ -23,13 +25,17 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
     const path = route.routeConfig?.path;
 
     // If we already have a stored route, reuse it
-    return path ? this.stored.has(path) : false;
+    return path ? this.stored.has(path + (route.params.id || '')) : false;
   }
 
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
     const path = route.routeConfig?.path;
     if (path) {
-      return this.stored.get(path) || null;
+      console.log(
+        this.stored.get(path + (route.params.id || '')) || null,
+        '👋🏾'
+      );
+      return this.stored.get(path + (route.params.id || '')) || null;
     }
     return null;
   }
